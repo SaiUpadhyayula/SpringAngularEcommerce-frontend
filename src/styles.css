@@ -1,1 +1,375 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #fff;
+    color: #555;
+    border-top: 3px solid #eee;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}
+
+header{
+	color: rgb(126, 66, 66);
+	padding: 8px 0px 20px 0px;
+	background: #fafafa url("assets/img/cream.png") repeat;
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-family: 'Lato', Arial, Helvetica, sans-serif;
+	padding: 1px 0px;
+	margin: 1px 0px;
+	font-weight: 400;
+	color: #666;
+}
+
+h2{
+	font-size: 25px;
+	line-height: 35px;
+}
+
+h3{
+	font-size: 25px;
+	line-height: 30px;
+}
+
+p{
+	padding: 0px;
+	margin: 0px;
+}
+
+.login{
+	margin-top:10px;
+}
+ 
+.login .btn {
+    font-size: 15px;
+}
+
+header .logo .login .search{
+	padding: 0px;
+	padding-top: 10px;
+}
+
+.login .btn, .items .btn, .item-input .btn{
+    background-color: #8c03a7;
+    color: #f0f8ff
+}
+
+.login a {
+    text-decoration: none;
+}
+
+.btn-search{
+    background-color: #8c03a7;
+}
+
+.fa-search{
+    color:aliceblue;
+}
+
+.search{
+	padding: 0px;
+	padding-top: 10px;
+}
+
+.cart-icon{    
+    color: #8c03a7;
+    font-size: 40px;
+}
+
+.badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+}
+  
+.label-warning[href],.badge-warning[href] {
+    background-color: #c67605;
+}
+#lblCartCount {
+    font-size: 12px;
+    background: #8c03a7;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -10px; 
+}
+
+header .logo .color, .title{
+	color: #8c03a7;
+}
+
+header .logo h1 a {
+    font-size: 35px;
+    color: #8c03a7;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.nav-bar {    
+    background-color: #8c03a7;
+    min-height: 50px;
+}
+
+.category {
+    font-size: 18px;
+}
+
+.category-drop-down{
+    background-color: #8c03a7;
+    color: aliceblue;
+}
+
+nav ul li a, li a:hover{
+    color: aliceblue
+}
+
+.navbar-toggler{
+    background-color: aliceblue;
+}
+
+.items {    
+    margin: 20px 0px;
+}
+
+.item {
+	min-height: 240px;
+	max-height: 260px;
+	max-width: 250px;
+	margin: 10px auto;
+	padding: 10px 10px;
+	border-radius:4px;
+	border: 1px solid #f3f3f3;
+	box-shadow: inset 0px 0px 1px #ddd;
+	-webkit-transition:box-shadow 1s ease;
+   	-moz-transition:box-shadow 1s ease;
+   	-o-transition:box-shadow 1s ease;
+   	transition:box-shadow 1s ease;  
+}
+
+.item hr {
+    margin: 5px 0px;
+}
+
+.item h6 {
+    padding-top: 5px;
+    text-align: center;
+}
+
+.item h6 a{
+    color: #8c03a7;
+}
+
+.item h6 a:hover{
+    text-decoration: none;
+}
+
+.item p {
+    line-height: 20px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    font-size: 10 px;
+    text-align: center;    
+}
+
+.item .item-price {
+    margin: 7px 0px;
+    display: inline-block;
+    padding: 2px 5px;
+    line-height: 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    background: #f3f3f3;
+    border: 1px solid #eee
+}
+
+.item .btn {
+    font-size: 13px;    
+}
+
+.item-image {
+    max-height: 150px;
+	padding: 5px 0px;
+	height: 140px;
+	width: auto;
+	display: block;
+	margin: 0 auto;    
+}
+
+.featured-item-image{
+    max-height: 100px;
+	padding: 5px 0px;
+	height: 140px;
+	width: auto;
+	display: block;
+	margin: 0 auto;    
+}
+
+.featured-items p {
+    padding-top: 5px;
+    font-weight: 100;
+    font-size:15px;
+    font-family: 'Lato', 'Arial', sans-serif;
+}
+
+.featured-items a {
+    text-decoration: none;
+    color: #8c03a7;
+}
+
+.breadcrumb-item a{
+    text-decoration: none;
+    color: #8c03a7;
+}
+
+.category-title{
+    color: #8c03a7;
+}
+
+.clearfix{
+    padding-top: 0px;
+}
+
+.sidebar h6{
+    color: #8c03a7;
+}
+
+.single-item-availability{
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;    
+    color: #03a711;
+    border: 1px solid #eee   
+}
+
+.single-item-image {
+    width: auto;
+	display: block;
+	margin: 0 auto; 
+}
+
+.single-item-tab-list{
+    width: 100%;
+}
+
+.single-item-tab-list li a {
+    text-decoration: none;
+    color: #8c03a7 !important;
+}
+
+.single-item-tab-list li a:hover {    
+    background-color: #8c03a7 !important;
+    color: aliceblue !important;
+}
+
+.tab-pane h5 {
+    padding-top: 15px;
+}
+
+.item-review{
+	background: #fafafa;
+	margin: 10px 0px;
+	border-radius: 5px;
+	border: 1px solid #eee;
+	padding: 10px;
+}
+
+.item-review .rmeta{
+	font-style: italic;
+}
+
+#navi{
+	margin: 0px;
+	padding: 0px;
+}
+
+#navi li {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+#navi > li > a { 
+  display: block;
+  padding: 10px 10px;
+  color: #8c03a7;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+  background-color: #fafafa;
+}
+
+#navi > li > a:hover{ 
+  color: #8c03a7;
+  background-color: #f3f3f3;
+  border-bottom: 1px solid #ddd;
+}
+
+.wishlist-table .btn, .wishlist-table a, .wishlist-table td {
+    font-size: 15px;
+}
+
+.wishlist-table a{
+    text-decoration: none;
+    color: #8c03a7;
+}
+
+.cart-title {
+    padding-top: 15px;
+    color: #8c03a7;
+}
+
+.cart{
+	margin: 20px 0px;
+}
+
+.cart .tcart img{
+	max-height: 50px;
+}
+
+.cart .tcart a{
+	color: #8c03a7;
+}
+
+.cart .cart-quantity input{
+	max-width: 25px;
+}
+
+.cart td.item-input{
+	width:15%;
+}
+
+.cart-continue-shopping .btn{
+    background-color: #8c03a7;
+    color: aliceblue;
+}
+
+.checkout{
+	margin: 20px 0px;
+}
+
+.confirm-order{
+    background-color: #8c03a7;    
+}
+
+.confirm-order a{
+    color: aliceblue;
+}
+
+.checkout-sub-title{
+    padding-top: 15px;
+    color: #8c03a7;
+}
+
+.login-title{
+    padding-top: 15px;
+}
