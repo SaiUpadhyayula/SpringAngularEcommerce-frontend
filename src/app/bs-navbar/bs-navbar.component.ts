@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from '../category.service';
 
 @Component({
   selector: 'bs-navbar',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BsNavbarComponent implements OnInit {
 
-  constructor() { }
+  categories$;
+
+  constructor(categoryService: CategoryService) { 
+    this.categories$ = categoryService.getCategories();
+  }
 
   ngOnInit() {
   }

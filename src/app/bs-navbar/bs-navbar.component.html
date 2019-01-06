@@ -9,10 +9,10 @@
           </div>
           <div class="collapse navbar-collapse" id="navbarText">
               <ul class="navbar-nav mr-auto">
-                  <li class="category nav-item dropdown">
+                  <li class="category nav-item dropdown" *ngFor="let c of categories$ | async">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                           aria-haspopup="true" aria-expanded="false">
-                          Mobile Phones
+                          {{c.categoryNames}}
                       </a>
                       <div class="category-drop-down dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="category-drop-down dropdown-item" href="#">HTC</a>
@@ -23,59 +23,7 @@
                           <div class="dropdown-divider"></div>
                           <a class="category-drop-down dropdown-item" href="#">Apple</a>                                
                       </div>
-                  </li>
-                  <li class="category nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
-                          Tablets
-                      </a>
-                      <div class="category-drop-down dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="category-drop-down dropdown-item" href="#">Apple</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="category-drop-down dropdown-item" href="#">Samsung</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="category-drop-down dropdown-item" href="#">Amazon Fire</a>
-                      </div>
-                  </li>
-                  <li class="category nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
-                          Laptops
-                      </a>
-                      <div class="category-drop-down dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="category-drop-down dropdown-item" href="#">Apple</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="category-drop-down dropdown-item" href="#">HP</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="category-drop-down dropdown-item" href="#">Dell</a>
-                      </div>
-                  </li>
-                  <li class="category nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
-                          Gaming
-                      </a>
-                      <div class="category-drop-down dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="category-drop-down dropdown-item" href="#">Play Station</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="category-drop-down dropdown-item" href="#">XBox</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="category-drop-down dropdown-item" href="#">Nintendo</a>
-                      </div>
-                  </li>
-                  <li class="category nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
-                          Cameras
-                      </a>
-                      <div class="category-drop-down dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="category-drop-down dropdown-item" href="#">Nikon</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="category-drop-down dropdown-item" href="#">Cannon</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="category-drop-down dropdown-item" href="#">Panasonic</a>
-                      </div>
-                  </li>
+                  </li>                  
               </ul>
           </div>
       </nav>

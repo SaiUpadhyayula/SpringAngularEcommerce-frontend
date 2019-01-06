@@ -19,6 +19,13 @@ import { ProductPageComponent } from './product-page/product-page.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { RouterModule } from '@angular/router';
+import { CategoryService } from './category.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthenticationService } from './authentication.service';
+import { JwtAuthProviderService } from './jwt-auth-provider.service';
+import { LocalStorageService } from 'ngx-webstorage';
+import { HttpClientInterceptor } from './http.client.interceptor';
 
 @NgModule({
   declarations: [
@@ -37,7 +44,7 @@ import { RouterModule } from '@angular/router';
     RegisterComponent,
     ProductPageComponent,
     AdminProductsComponent,
-    AdminOrdersComponent
+    AdminOrdersComponent,    
   ],
   imports: [
     BrowserModule,
@@ -53,9 +60,13 @@ import { RouterModule } from '@angular/router';
       {path:'register', component:RegisterComponent},
       {path:'admin/products', component:AdminProductsComponent},
       {path:'admin/orders', component:AdminOrdersComponent},
-    ])
+    ]),
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CategoryService, AuthenticationService, JwtAuthProviderService, LocalStorageService,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

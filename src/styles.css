@@ -373,3 +373,8 @@ nav ul li a, li a:hover{
 .login-title{
     padding-top: 15px;
 }
+
+.register-btn, .login-btn, .reset-btn{
+    background-color: #8c03a7;
+    color: aliceblue;
+}

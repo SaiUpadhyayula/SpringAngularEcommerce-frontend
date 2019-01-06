@@ -1,3 +1,46 @@
-<p>
-  login works!
-</p>
+<div class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="well">
+          <h4 class="login-title">Login to Your Account</h4>
+          <div class="form">
+
+            <!-- Login  form (not working)-->
+            <form class="form-horizontal" (ngSubmit)="login()" [formGroup]="loginForm">
+              <!-- Username -->
+              <div class="form-group">
+                <label class="control-label col-md-3" for="username">Username</label>
+                <div class="col-md-8">
+                  <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': !isError }" [(ngModel)]="loginPayload.username">
+                </div>
+              </div>
+              <!-- Password -->
+              <div class="form-group">
+                <label class="control-label col-md-3" for="password">Password</label>
+                <div class="controls col-md-8">
+                  <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': !isError }" [(ngModel)]="loginPayload.password">
+                </div>
+              </div>
+              <!-- Buttons -->
+              <div class="form-group">
+                <!-- Buttons -->
+                <div class="col-md-8 col-md-offset-3">
+                  <button type="submit" class="btn login-btn">Login</button>
+                  <button type="reset" class="btn reset-btn">Reset</button>
+                </div>
+              </div>
+              <div class="text-danger" *ngIf="isError">
+                Invalid Credentials. Please Check and retry.
+              </div>
+            </form>
+            <hr />
+            <h5>New Account</h5>
+            Don't have an Account? <a href="register.html">Register</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
