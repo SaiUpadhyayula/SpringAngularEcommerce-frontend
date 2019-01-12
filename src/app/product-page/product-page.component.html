@@ -15,16 +15,14 @@
 			</div>
 			<div class="row">
 				<div class="col-md-5">
-					<img class="single-item-image" src="../../assets/photos/3.png" alt="" />
+					<img class="single-item-image" src="{{product.imageUrl}}" alt="" />
 				</div>
 				<div class="col-md-7 single-item">
-					<h6>Apple iPhone 5G</h6>
+					<h6>{{product.productName}}</h6>
 					<hr/>					
-					<h6>Price: $899</h6>
-					<h6>Brand: Apple</h6>
-					<h6>Model: 5G</h6>
-					<h6>Storage: 128GB</h6>
-					<h6>Availability: <span class="single-item-availability">In Stock</span></h6>
+					<h6>Price: ${{product.price}}</h6>
+					<h6>Brand: {{product.manufacturer}}</h6>					
+					<h6>Availability: <span class="single-item-availability" style="color:red">{{product.availability.availability}}</span></h6>
 
 					<div class="user-rating">
 						<label for="input-2" class="control-label">Avg. User Rating</label>
@@ -64,23 +62,9 @@
 				<div class="tab-content">
 					<!-- Description -->
 					<div class="tab-pane active" id="tab1">
-						<h5>Apple iPhone 5G</h5>
-<hr/><hr>
-						<p>Nulla facilisi. Sed justo dui, scelerisque ut consectetur vel, eleifend id erat. Morbi auctor adipiscing
-							tempor. Phasellus condimentum rutrum aliquet. Quisque eu consectetur erat. Proin rutrum, erat eget posuere
-							semper, <em>arcu mauris posuere tortor</em>, in commodo enim magna id massa. Suspendisse potenti. Aliquam erat
-							volutpat. Maecenas quis tristique turpis. Nulla facilisi. Duis sed velit at <a href="#">magna sollicitudin
-								cursus</a> ac ultrices magna. Aliquam consequat, purus vitae auctor ullamcorper, sem velit convallis quam, a
-							pharetra justo nunc et mauris. Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem ipsum
-							dolor sit amet, consectetur adipiscing elit.</p>
-						<h6>Features</h6>
-						<ul>
-							<li>Etiam adipiscing posuere justo, nec iaculis justo dictum non</li>
-							<li>Cras tincidunt mi non arcu hendrerit eleifend</li>
-							<li>Aenean ullamcorper justo tincidunt justo aliquet et lobortis diam faucibus</li>
-							<li>Maecenas hendrerit neque id ante dictum mattis</li>
-							<li>Vivamus non neque lacus, et cursus tortor</li>
-						</ul>
+						<h5>{{product.productName}}</h5>
+						<hr/><hr>
+						<p>{{product.description}}</p>						
 					</div>
 
 					<!-- Sepcs -->
@@ -89,38 +73,10 @@
 						<h5 class="title">Product Specs</h5>
 						<table class="table table-striped tcart">
 							<tbody>
-								<tr>
-									<td><strong>Name</strong></td>
-									<td>Apple iPhone 5G</td>
-								</tr>
-								<tr>
-									<td><strong>Brand</strong></td>
-									<td>Apple</td>
-								</tr>
-								<tr>
-									<td><strong>Modal</strong></td>
-									<td>Fifth Generation</td>
-								</tr>
-								<tr>
-									<td><strong>Memory</strong></td>
-									<td>2GB RAM</td>
-								</tr>
-								<tr>
-									<td><strong>Storage</strong></td>
-									<td>16GB, 32GB, 64GB</td>
-								</tr>
-								<tr>
-									<td><strong>Camera</strong></td>
-									<td>Front VGA, Read 8MP</td>
-								</tr>
-								<tr>
-									<td><strong>Processor</strong></td>
-									<td>Apple 1.25GHz Processor</td>
-								</tr>
-								<tr>
-									<td><strong>Battery</strong></td>
-									<td>30 Hours Standby</td>
-								</tr>
+								<tr *ngFor="let p of product.attributeList">
+									<td><strong>{{p.attributeName}}</strong></td>
+									<td>{{p.attributeValue}}</td>
+								</tr>								
 							</tbody>
 						</table>
 

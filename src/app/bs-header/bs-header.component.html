@@ -27,7 +27,8 @@
                             <span class='badge badge-warning' id='lblCartCount'>0</span>
                         </a>
                     </div>
-                    <div class="col-md-6"><a href="/login" class="btn">Login</a></div>
+                    <div *ngIf="showLoginButton" class="col-md-6"><a href="/login" class="btn">Login</a></div>
+                    <div *ngIf="!showLoginButton" class="col-md-6"><a href="/login" class="btn">{{userAccount}}</a></div>
                 </div>
             </div>
         </div>

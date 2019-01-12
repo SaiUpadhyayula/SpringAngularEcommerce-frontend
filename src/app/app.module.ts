@@ -23,7 +23,6 @@ import { CategoryService } from './category.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationService } from './authentication.service';
-import { JwtAuthProviderService } from './jwt-auth-provider.service';
 import { LocalStorageService } from 'ngx-webstorage';
 import { HttpClientInterceptor } from './http.client.interceptor';
 
@@ -51,7 +50,7 @@ import { HttpClientInterceptor } from './http.client.interceptor';
     AppRoutingModule,
     RouterModule.forRoot([
       {path:'', component: HomeComponent},
-      {path:'products', component: ProductsComponent},
+      {path:'products/category/:categoryName', component: ProductsComponent},
       {path:'product-page', component: ProductPageComponent},
       {path:'shopping-cart', component:ShoppingCartComponent},
       {path:'check-out', component:CheckOutComponent},
@@ -65,7 +64,7 @@ import { HttpClientInterceptor } from './http.client.interceptor';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [CategoryService, AuthenticationService, JwtAuthProviderService, LocalStorageService,
+  providers: [CategoryService, AuthenticationService, LocalStorageService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
