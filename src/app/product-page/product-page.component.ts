@@ -14,9 +14,9 @@ export class ProductPageComponent implements OnInit {
 
   constructor(productService: ProductService, private route: ActivatedRoute) {
 
-    let productName = route.snapshot.queryParams.productName;
-    if(productName) 
-      productService.getProductByName(productName).subscribe(p => this.product = p);
+    let sku = route.snapshot.queryParams.sku;
+    if(sku) 
+      productService.getSku(sku).subscribe(p => this.product = p);
   }
 
   ngOnInit() {

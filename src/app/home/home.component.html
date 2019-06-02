@@ -8,8 +8,8 @@
             <!-- Item #1 -->
             <div class="col-md-3 col-sm-4" *ngFor="let p of $products | async">
                 <div class="item">
-                    <a href="/product-page?productName={{p.productName}}"><img class="item-image" src="{{p.imageUrl}}" alt="" /></a>
-                    <h6><a href="/product-page?productName={{p.productName}}">{{p.productName}}</a></h6>
+                    <a href="/product-page?sku={{p.sku}}"><img class="item-image" src="{{p.imageUrl}}" alt="" /></a>
+                    <h6><a href="/product-page?sku={{p.sku}}">{{p.productName}}</a></h6>
                     <hr />
                     <div class="item-price float-left">${{p.price}}</div>
                     <button class="btn float-right">Add to Cart</button>

@@ -10,14 +10,14 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getProductsByCategory(categoryName: string) {
-    return this.http.get<ProductInformation>('http://localhost:8080/store/catalog/products/category/'+categoryName);
+    return this.http.get<ProductInformation>('http://localhost:8080/api/store/catalog/products/category/'+categoryName);
   }
 
   getProducts() {
-    return this.http.get<ProductInformation>('http://localhost:8080/store/catalog/products/');
+    return this.http.get<ProductInformation>('http://localhost:8080/api/store/catalog/products/');
   }
 
-  getProductByName(productName: string) {
-    return this.http.get<ProductInformation>('http://localhost:8080/store/catalog/products/' + productName);
+  getSku(productName: string) {
+    return this.http.get<ProductInformation>('http://localhost:8080/api/store/catalog/products/' + productName);
   }
 }
