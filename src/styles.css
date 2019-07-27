@@ -377,3 +377,27 @@ nav ul li a, li a:hover{
     background-color: #8c03a7;
     color: aliceblue;
 }
+
+.badge {
+    margin-right: .3rem;
+    background-color: #8c03a7;
+}
+
+
+/***** REQUIRED STYLES *****/
+.badge-labeled {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0.2rem;
+}
+.badge-labeled i {
+    padding: 0.25em  0.3rem;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    right: -0.2em;
+    background-color: #000000;
+    background-color: rgba(0,0,0,0.2);
+    border-left: solid 1px rgba(255,255,255,.5);
+    border-radius: 0 0.25rem 0.25rem 0;
+}

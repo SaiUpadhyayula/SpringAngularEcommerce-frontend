@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { SearchQueryDto, Filter } from '../product-page/SearchQueryDto';
 import { ProductInformation } from '../product-page/ProductInformation';
-import { ProductSearchResponseDto, FacetDto, FacetValueDto } from '../product-page/ProductSearchResponseDto';
+import { FacetDto } from '../product-page/ProductSearchResponseDto';
 
 @Component({
   selector: 'app-products',
@@ -21,17 +21,11 @@ export class ProductsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private productService: ProductService) {
     this.categoryName = route.snapshot.params.categoryName;
-    this.searchQueryDto = {
-      textQuery: "",
-      filters: []
-    };
-    productService.getFacets(this.categoryName, this.searchQueryDto).subscribe((res) => {
-      console.log(res);
-      this.products$ = res.products;
-      this.facetDtos$ = res.facetDtos;
-    });
     this.filters = [];
     this.checkedValues = [];
+
+    this.initSearchQueryDto();
+    this.getFacets();
   }
 
   ngOnInit() {
@@ -43,6 +37,48 @@ export class ProductsComponent implements OnInit {
       "value": facetNameValue
     };
     this.filters.push(this.filter);
+    this.get();
+    this.checkedValues.push(facetNameValue);
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+  }
+
+  isChecked(facetValueName: String): Boolean {
+    return this.checkedValues.indexOf(facetValueName) >= 0;
+  }
+
+  existsAny(checkedValues: Array<String>) {
+    return checkedValues.length > 0;
+  }
+
+  clearAllFilters() {
+    this.checkedValues = [];
+    this.filters = [];
+    this.searchQueryDto.filters = this.filters;
+    this.getFacets();
+  }
+
+  removeFilter(value: String) {
+    this.checkedValues.splice(this.checkedValues.indexOf(value), 1);
+    this.filters = this.filters.filter(el => el.value !== value);
+    this.get();
+  }
+
+  private initSearchQueryDto() {
+    this.searchQueryDto = {
+      textQuery: "",
+      filters: this.filters
+    };
+  }
+
+  private getFacets() {
+    this.productService.getFacets(this.categoryName, this.searchQueryDto).subscribe((res) => {
+      console.log(res);
+      this.products$ = res.products;
+      this.facetDtos$ = res.facetDtos;
+    });
+  }
+
+  private get() {
     this.searchQueryDto = {
       textQuery: "",
       filters: this.filters
@@ -52,10 +88,5 @@ export class ProductsComponent implements OnInit {
       this.products$ = res.products;
       this.facetDtos$ = res.facetDtos;
     });
-    this.checkedValues.push(facetNameValue);
-  }
-
-  isChecked(facetValueName: String): Boolean {
-    return this.checkedValues.indexOf(facetValueName) >= 0;
   }
 }

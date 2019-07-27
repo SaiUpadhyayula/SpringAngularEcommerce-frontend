@@ -1,29 +1,38 @@
 <div class="items">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">								
+			<div class="col-md-12">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-3 col-sm-3 hidden-xs">
-							<h5 class="title">Categories</h5>
+							<h5 class="title">Filter</h5>
 							<hr>
+							<h6 *ngIf="existsAny(checkedValues)">Selected Filters:</h6>
+							<span class="badge badge-primary badge-labeled" *ngFor="let value of checkedValues">{{value}} <i class="fa fa-trash" (click)="removeFilter(value)"></i></span>
+							<hr *ngIf="existsAny(checkedValues)">
+							<span *ngIf="existsAny(checkedValues)" class="badge badge-primary badge-labeled">Clear All <i class="fa fa-trash" (click)="clearAllFilters()"></i></span>
+
 							<div class="card sidebar-menu mb-1" *ngFor="let facetDto of facetDtos$">
-									<div class="card-header">
-									  <h3 class="h4 card-title">{{facetDto.facetName}}</h3>
-									</div>
-									<div class="card-body">									  
-										<div class="form-group">
-										  <div class="checkbox" *ngFor="let facetDtoValue of facetDto.facetValueDto; let i = index">
+								<div class="card-header">
+									<h3 class="h4 card-title">{{facetDto.facetName}}</h3>
+								</div>
+								<div class="card-body">
+									<div class="form-group">
+										<div class="checkbox"
+											*ngFor="let facetDtoValue of facetDto.facetValueDto; let i = index">
 											<label>
-											  <input type="checkbox" (click)="check(facetDto.facetName, facetDtoValue.facetValueName, $event)" [checked]="isChecked(facetDtoValue.facetValueName)"> {{facetDtoValue.facetValueName}}  ({{facetDtoValue.count}})
+												<input type="checkbox"
+													(click)="check(facetDto.facetName, facetDtoValue.facetValueName, $event)"
+													[checked]="isChecked(facetDtoValue.facetValueName)">
+												{{facetDtoValue.facetValueName}} ({{facetDtoValue.count}})
 											</label>
-										  </div>										  
-										</div>																			  
+										</div>
 									</div>
-								  </div>
+								</div>
+							</div>
 						</div>
 						<div class="col-md-9 col-sm-9">
-											<!-- Breadcrumb -->
+							<!-- Breadcrumb -->
 							<nav class="breadcrumb-category" aria-label="breadcrumb">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -43,19 +52,20 @@
 									<option>Ratings</option>
 								</select>
 							</div>
-				
+
 							<div class="clearfix"></div>
 							<div class="row">
-							<!-- Item #1 -->
-							<div class="col-md-3 col-md-4" *ngFor="let p of products$">
-								<div class="item">
-									<a href="/product-page?sku={{p.sku}}"><img class="item-image" src="{{p.imageUrl}}" alt=""/></a>
-									<h6><a href="/product-page?sku={{p.sku}}">{{p.productName}}</a></h6>
-									<hr />
-									<div class="item-price float-left">${{p.price}}</div>
-									<button class="btn float-right">Add to Cart</button>
+								<!-- Item #1 -->
+								<div class="col-md-3 col-md-4" *ngFor="let p of products$">
+									<div class="item">
+										<a href="/product-page?sku={{p.sku}}"><img class="item-image"
+												src="{{p.imageUrl}}" alt="" /></a>
+										<h6><a href="/product-page?sku={{p.sku}}">{{p.productName}}</a></h6>
+										<hr />
+										<div class="item-price float-left">${{p.price}}</div>
+										<button class="btn float-right">Add to Cart</button>
+									</div>
 								</div>
-							</div>
 							</div>
 						</div>
 					</div>

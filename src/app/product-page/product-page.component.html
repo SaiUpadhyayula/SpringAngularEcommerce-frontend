@@ -1,58 +1,55 @@
 <div class="items">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
 
-					<!-- Breadcrumb -->
-					<nav class="breadcrumb-category" aria-label="breadcrumb">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="#">Home</a></li>
-							<li class="breadcrumb-item"><a href="#">Mobile Phones</a></li>
-							<li class="breadcrumb-item active" aria-current="page">Apple</li>
-						</ol>
-					</nav>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-5">
-					<img class="single-item-image" src="{{product.imageUrl}}" alt="" />
-				</div>
-				<div class="col-md-7 single-item">
-					<h6>{{product.productName}}</h6>
-					<hr/>					
-					<h6>Price: ${{product.price}}</h6>
-					<h6>Brand: {{product.manufacturer}}</h6>					
-					<h6>Availability: <span class="single-item-availability" style="color:red">{{product.availability.availability}}</span></h6>
-
-					<div class="user-rating">
-						<label for="input-2" class="control-label">Avg. User Rating</label>
-						<span class="user-rating-star"><i class="fa fa-star-o"></i></span>
-						<span class="user-rating-star"><i class="fa fa-star-o"></i></span>
-						<span class="user-rating-star"><i class="fa fa-star-o"></i></span>
-						<span class="user-rating-star"><i class="fa fa-star-o"></i></span>
-						<span class="user-rating-star"><i class="fa fa-star-o"></i></span>
-					</div>
-					<hr/>					
-					<button class="btn">Add to Cart</button>
-					<button class="btn">Add to Wishlist</button>
-
-				</div>
+				<!-- Breadcrumb -->
+				<nav class="breadcrumb-category" aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">Home</a></li>
+						<li class="breadcrumb-item"><a href="#">Mobile Phones</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Apple</li>
+					</ol>
+				</nav>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-md-5">
+				<img class="single-item-image" src="{{product.imageUrl}}" alt="" />
+			</div>
+			<div class="col-md-7 single-item">
+				<h6>{{product.productName}}</h6>
+				<hr />
+				<h6>Price: ${{product.price}}</h6>
+				<h6>Brand: {{product.manufacturer}}</h6>
+				<h6>Availability: <span class="single-item-availability"
+						style="color:red">{{product.availability.availability}}</span></h6>
+
+				<div class="user-rating">
+					<label for="input-2" class="control-label">Avg. User Rating</label>
+					<span class="user-rating-star"><i class="fa fa-star-o"></i></span>
+					<span class="user-rating-star"><i class="fa fa-star-o"></i></span>
+					<span class="user-rating-star"><i class="fa fa-star-o"></i></span>
+					<span class="user-rating-star"><i class="fa fa-star-o"></i></span>
+					<span class="user-rating-star"><i class="fa fa-star-o"></i></span>
+				</div>
+				<hr />
+				<button class="btn">Add to Cart</button>
+				<button class="btn">Add to Wishlist</button>
+
+			</div>
+		</div>
+		<hr>
 		<div class="container">
 			<div class="row">
 				<ul class="single-item-tab-list nav nav-tabs" id="myTab" role="tablist">
 					<li class="nav-item">
 						<a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-controls="description"
-						 aria-selected="true">Description</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" href="#tab2" role="tab" aria-controls="specs"
-						 aria-selected="false">Specs</a>
+							aria-selected="true">Description</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" data-toggle="tab" href="#tab3" role="tab" aria-controls="reviews"
-						 aria-selected="false">Reviews</a>
+							aria-selected="false">Reviews</a>
 					</li>
 				</ul>
 			</div>
@@ -63,41 +60,25 @@
 					<!-- Description -->
 					<div class="tab-pane active" id="tab1">
 						<h5>{{product.productName}}</h5>
-						<hr/><hr>
-						<p>{{product.description}}</p>						
-					</div>
-
-					<!-- Sepcs -->
-					<div class="tab-pane" id="tab2">
-
+						<hr>
+						<p>{{product.description}}</p>
+						<hr>
 						<h5 class="title">Product Specs</h5>
 						<table class="table table-striped tcart">
 							<tbody>
 								<tr *ngFor="let p of product.attributeList">
 									<td><strong>{{p.attributeName}}</strong></td>
-									<td>{{p.attributeValue}}</td>
-								</tr>								
+									<td innerHtml={{p.attributeValue}}></td>
+								</tr>
 							</tbody>
 						</table>
-
 					</div>
 
 					<!-- Review -->
 					<div class="tab-pane" id="tab3">
-						<h5>Product Reviews</h5>
-						<div class="item-review">
-							<h5>Ravi Kumar - <span class="color">4/5</span></h5>
-							<p class="rmeta">27/1/2012</p>
-							<p>Suspendisse potenti. Morbi ac felis nec mauris imperdiet fermentum. Aenean sodales augue ac lacus hendrerit
-								sed rhoncus erat hendrerit. Vivamus vel ultricies elit. Curabitur lacinia nulla vel tellus elementum non mollis
-								justo aliquam.</p>
-						</div>
-
-						<hr />
 						<h5 class="title">Write a Review</h5>
 
 						<div class="form form-small">
-
 							<!-- Review form (not working)-->
 							<form class="form-horizontal">
 								<!-- Name -->
@@ -140,6 +121,19 @@
 							</form>
 						</div>
 
+						<h5>Product Reviews</h5>
+						<div class="item-review">
+							<h5>Ravi Kumar - <span class="color">4/5</span></h5>
+							<p class="rmeta">27/1/2012</p>
+							<p>Suspendisse potenti. Morbi ac felis nec mauris imperdiet fermentum. Aenean sodales augue
+								ac lacus hendrerit
+								sed rhoncus erat hendrerit. Vivamus vel ultricies elit. Curabitur lacinia nulla vel
+								tellus elementum non mollis
+								justo aliquam.</p>
+						</div>
+
+						<hr />
+
 					</div>
 
 				</div>
@@ -147,3 +141,4 @@
 		</div>
 
 	</div>
+</div>
