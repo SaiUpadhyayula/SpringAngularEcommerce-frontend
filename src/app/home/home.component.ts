@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   $products;
 
   constructor(productService: ProductService) { 
-    this.$products = productService.getProducts();
+    this.$products = productService.getFeaturedProducts();
   }
 
   ngOnInit() {

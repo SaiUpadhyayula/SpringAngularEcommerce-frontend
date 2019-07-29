@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { LoginPayload } from './login-payload';
 import { JwtAuthResponsePayload } from './payload/authentication-response.payload';
+import { RegisterPayload } from './register-payload';
+import { ApiResponse } from './register/api-response';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +19,12 @@ export class AuthenticationService {
       this.$localStorage.store('authenticationToken', data.accessToken);
       this.$localStorage.store('user', data.username);
       return true;
+    }));
+  }
+
+  register(registerPayload: RegisterPayload): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>('http://localhost:8080/api/auth/register', registerPayload).pipe(map(data => {
+      return data;
     }));
   }
   

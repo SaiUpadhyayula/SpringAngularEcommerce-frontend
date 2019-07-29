@@ -8,8 +8,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
-
+export class ProductService {  
   constructor(private http: HttpClient) { }
 
   getProductsByCategory(categoryName: string) {
@@ -18,6 +17,10 @@ export class ProductService {
 
   getProducts() {
     return this.http.get<ProductInformation>('http://localhost:8080/api/store/catalog/products/');
+  }
+
+  getFeaturedProducts(): any {
+    return this.http.get<ProductInformation>('http://localhost:8080/api/store/catalog/products/featured');
   }
 
   getSku(productName: string) {

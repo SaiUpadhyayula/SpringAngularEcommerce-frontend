@@ -3,7 +3,6 @@ import { AuthenticationService } from '../authentication.service';
 import { LoginPayload } from '../login-payload';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
   selector: 'app-login',
