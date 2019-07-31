@@ -9,11 +9,11 @@
             </div>
             <div class="col-md-7">
                 <!-- Search form -->
-                <form role="form">
+                <form role="form" (ngSubmit)="search()">
                     <div class="input-group search">
-                        <input class="form-control" type="search" placeholder="search">
+                        <input class="form-control" type="search" name="searchQuery" placeholder="search" [(ngModel)]="searchQueryDto.textQuery">
                         <span class="input-group-append">
-                            <button class="btn btn-search" type="button">
+                            <button class="btn btn-search" type="submit">
                                 <i class="fa fa-search"></i>
                             </button>
                         </span>

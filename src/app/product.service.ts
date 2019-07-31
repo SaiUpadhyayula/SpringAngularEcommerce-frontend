@@ -33,4 +33,10 @@ export class ProductService {
       return data;
     }));    
   }
+
+  search(searchQueryDto: SearchQueryDto){
+    return this.http.post<ProductSearchResponseDto>('http://localhost:8080/api/store/catalog/search', searchQueryDto).pipe(map(data => {
+      return data;
+    }));
+  }
 }

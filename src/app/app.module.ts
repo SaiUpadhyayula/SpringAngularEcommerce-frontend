@@ -25,6 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationService } from './authentication.service';
 import { LocalStorageService } from 'ngx-webstorage';
 import { HttpClientInterceptor } from './http.client.interceptor';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { SearchSharedService } from './search-shared-service';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { HttpClientInterceptor } from './http.client.interceptor';
     RegisterComponent,
     ProductPageComponent,
     AdminProductsComponent,
-    AdminOrdersComponent,    
+    AdminOrdersComponent,
+    SearchResultsComponent,    
   ],
   imports: [
     BrowserModule,
@@ -59,12 +62,13 @@ import { HttpClientInterceptor } from './http.client.interceptor';
       {path:'register', component:RegisterComponent},
       {path:'admin/products', component:AdminProductsComponent},
       {path:'admin/orders', component:AdminOrdersComponent},
+      {path:'search/:searchTerm', component: SearchResultsComponent}
     ]),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [CategoryService, AuthenticationService, LocalStorageService,
+  providers: [CategoryService, AuthenticationService, LocalStorageService, SearchSharedService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
