@@ -1,3 +1,5 @@
+import { ProductRating } from './product-rating';
+
 export class ProductInformation {
     productName: string;
     imageUrl: string;
@@ -6,6 +8,7 @@ export class ProductInformation {
     manufacturer: string;
     availability: ProductAvailabilityInformation;
     attributeList: Array<ProductAttributeInformation>;
+    productRatingDtoList: Array<ProductRating>;
 }
 
 class ProductAvailabilityInformation{

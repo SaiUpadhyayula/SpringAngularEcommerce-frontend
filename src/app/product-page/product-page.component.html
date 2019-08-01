@@ -122,14 +122,10 @@
 						</div>
 
 						<h5>Product Reviews</h5>
-						<div class="item-review">
-							<h5>Ravi Kumar - <span class="color">4/5</span></h5>
+						<div class="item-review" *ngFor="let rating of product.productRatingDtoList">
+							<h5>{{rating.userName}} - <span class="color">{{rating.ratingStars}}/5</span></h5>
 							<p class="rmeta">27/1/2012</p>
-							<p>Suspendisse potenti. Morbi ac felis nec mauris imperdiet fermentum. Aenean sodales augue
-								ac lacus hendrerit
-								sed rhoncus erat hendrerit. Vivamus vel ultricies elit. Curabitur lacinia nulla vel
-								tellus elementum non mollis
-								justo aliquam.</p>
+							<p>{{rating.review}}<span (click)="deleteReview()" class="float-right"><i class="fa fa-trash"></i></span></p>
 						</div>
 
 						<hr />
